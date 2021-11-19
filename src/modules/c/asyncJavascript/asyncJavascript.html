@@ -1,0 +1,67 @@
+<template>
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-custom-custom25" title="clock">
+                            <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+                                <!-- Note this path when referencing an icon: it's different than in the documentation! -->
+                                <use xlink:href="/resources/slds/icons/custom-sprite/svg/symbols.svg#custom25"></use>
+                            </svg>
+                            <span class="slds-assistive-text">clock</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate"
+                                        title="Asynchronous Javascript">Asynchronous Javascript</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">Promises • Async/Await • Callback Functions • Error
+                            Handling • Created by Jared Longnecker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="slds-grid">
+            <c-poke-api class="slds-col slds-size_1-of-2"></c-poke-api>
+            <c-callback-functions class="slds-col slds-size_1-of-2"></c-callback-functions>
+        </div>
+        <hr />
+        <div class="event-loop">
+            <h2 class="slds-text-heading_medium slds-m-bottom_small">
+                Let's discuss the Event Loop, aka the magic behind the scenes that's allowing all this to happen.
+            </h2>
+            <p class="slds-text-heading_small">
+                <img class="slds-float_left slds-m-right_small" height="10rem"
+                    src="https://res.cloudinary.com/practicaldev/image/fetch/s--BLtCLQcd--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif14.1.gif"
+                    alt="Event loop animation" />
+                The Event Loop is a process that facilitates the asynchronous processes in Javascript. When code is
+                called it is sent to the Event Queue, where the Event Loop pulls the function and sends it to the Call
+                Stack if it is empty. The code then gets executed from the Call Stack and removed when a value returned.
+                <br />
+                <br />
+                When the asynchronous code is called, it is sent to the Web API that handles that specific type of
+                asynchronous code. After it completes, the Web API sends the callback to the Event Queue, where the
+                Event Loop adds it to the Call Stack and the process repeats.
+                <br />
+                <br />
+                In the example to the left, you can see the <code>bar()</code> function that contains the
+                <code> setTimeout()</code> function that logs "Second" to the console after a delay. After
+                <code> bar()</code>, <code>foo()</code> then runs which logs "First", then <code>baz()</code> which logs
+                "Third".
+                <br />
+                <br />
+                <a class="slds-text-body_small slds-align_absolute-center"
+                    href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">.gif credit</a>
+            </p>
+        </div>
+    </div>
+</template>

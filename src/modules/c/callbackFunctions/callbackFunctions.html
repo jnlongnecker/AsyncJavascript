@@ -1,0 +1,22 @@
+<template>
+    <section class="slds-grid slds-grid_align-center">
+        <p>
+            This example uses a callback function to perform some functionality after a specified period of time. The
+            input below is the specified wait time in miliseconds. There is also error handling on this example for
+            negative wait times.
+        </p>
+    </section>
+
+    <section class="slds-grid slds-grid_align-center" style="margin-top: 1rem;">
+        <input aria-label="Wait time in miliseconds" type="number" class="text-box" value={waitTime}
+            onkeydown={runExample} />
+        <c-custom-button aria-label="Run button" label="Run" onclick={runExample}></c-custom-button>
+    </section>
+    <section>
+        <div if:true={displayErrorMessage} class="error">
+            <p>{errorMessage}</p>
+        </div>
+        <div if:true={showSpinner} class="spinner"></div>
+    </section>
+
+</template>
